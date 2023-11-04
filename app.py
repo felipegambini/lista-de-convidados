@@ -41,13 +41,9 @@ def read_db(_client, _db, _collection, filter=None):
 def index():
     if request.method == 'POST':
         nome = str(request.form['name']).strip().title()
-        data_confirmacao = datetime.datetime.now()
-        try:
-            acompanhante = bool(request.form['acompanhantes'])
-        except KeyError:
-            acompanhante = False
-        acompanhante
-        convidado = {'nome': nome, 'acompanhante': acompanhante, 'datahora_confirmacao': data_confirmacao}
+        data_confirmacao = datetime.datetime.utcnow() - datetime.timedelta(hours=3)
+        data_confirmacao = data_confirmacao.strftime('%x %X')
+        convidado = {'nome': nome, 'datahora_confirmacao': data_confirmacao}
         insert_db(CLIENT, DB, 'lista_convidados', convidado)
         return render_template('index.html', dados={'nome': nome, 'show': True})
 

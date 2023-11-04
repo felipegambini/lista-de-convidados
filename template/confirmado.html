@@ -17,7 +17,6 @@
         <thead>
           <tr class="thead-dark">
             <th class="text-center">Nome</th>
-            <th class="text-center">Acompanhante</th>
             <th class="text-center">DataHora Confirmação</th>
             <th class="text-center">Excluir</th>
           </tr>
@@ -26,7 +25,6 @@
           {% for dado in dados['df'].iloc %}
           <tr>
             <td scope="row" class="text-center">{{dado['nome']}}</td>
-            <td scope="row" class="text-center">{{dado['acompanhante']}}</td>
             <td scope="row" class="text-center">{{dado['datahora_confirmacao']}}</td>
             <td scope="row" class="text-center"><a href="/confirmacoes/delete/{{dado['_id']}}" target="_self">🗑️</a></td>
           </tr>

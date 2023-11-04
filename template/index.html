@@ -1,61 +1,71 @@
 <!doctype html>
 <html lang="pt-br">
-  <head>
-    <title>Convite - Ceita de Natal</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <!-- <link rel="stylesheet" href="../static/css/style.css"> -->
-    <!-- <link rel="shortcut icon" href="../static/images/favicon.ico" type="image/x-icon"> -->
-    <link rel="shortcut icon" href="{{url_for('static', filename='images/favicon.ico')}}" type="image/x-icon">
-    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
-  </head>
-  <body class="bg-light mb-5">
-    {% if dados['show'] %}
-    <div class="alert alert-success alert-dismissible w-75 mx-auto mt-3 text-center">
-      <button type="button" class="close" data-dismiss="alert">&times;</button>
-      <strong>{{dados['nome']}}</strong> Confimado com sucesso!
-    </div>
-    {% endif %}
-      <div class="container w-auto mx-auto"><img class="mx-auto d-block shadow mb-5 mt-5 rounded-lg w-75 pulse" src="..\static\images\Convite Ceia de Natal.png" alt="" srcset="" ></div>
-      <section class="text-center w-75 mx-auto">
-            <p>Venha celebrar o Natal conosco no <span class="bold">Residencial Terra do Sol!</span>
-            <p>📆 Dia <span class="bold"><u>24/12/2023</u></span>, às 20:00 horas.</p>
-            <p>📍 Endereço: Av. Pioneiro Antônio Ruíz Saldanha, 1795. <a href="https://www.google.com.br/maps/place/Av.+Pioneiro+Ant%C3%B4nio+Ru%C3%ADz+Saldanha,+1795+-+Parque+Industrial,+Maring%C3%A1+-+PR,+87065-290/@-23.4455,-51.9817444,17z/data=!3m1!4b1!4m5!3m4!1s0x94ecd7a08774a7b7:0xc54c1f27b11cfd6!8m2!3d-23.4455049!4d-51.9791695?entry=ttu" target="_blank"><span class="badge badge-primary">Abrir no Maps <svg xmlns="http://www.w3.org/2000/svg" width="14" height="12" fill="currentColor" class="bi bi-box-arrow-up-right" viewBox="0 0 16 16">
-              <path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"/>
-              <path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z"/>
-            </svg></i></span></a></p>
-            <p>Aguardamos a confirmação da sua presença até o dia <u>15/12/2023</u>.</p>
-            <p>Estamos ansiosos para comemorarmos esse dia especial!</p>
-      </section>
-      <!-- ABRIR NO GOOGLE MAPS -->
-      <div class="container">
-          <form class="mx-auto" method="POST">
-            <h1 class="mb-3 display-4 text-center">Confirme sua presença</h1>
-            <div class="form-group">
-              <label for="name">Nome completo</label>
-              <input type="text" class="form-control" id="name" name="name" placeholder="Digite seu nome completo">
-            </div>
-            <div class="form-check">
-              <label class="form-check-label">
-                <input type="checkbox" class="form-check-input" name="acompanhantes" id="acompanhantes" value="True">
-                Vou levar acompanhante
-              </label>
-            </div>
-    
-            <button type="submit" class="btn btn-success btn-block mt-3">Confirmar</button>
-          </form>
+<head>
+  <title>Convite - Ceita de Natal</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <!-- <link rel="stylesheet" href="../static/css/style.css"> -->
+  <!-- <link rel="shortcut icon" href="../static/images/favicon.ico" type="image/x-icon"> -->
+  <link rel="shortcut icon" href="{{url_for('static', filename='images/favicon.ico')}}" type="image/x-icon">
+  <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+</head>
+
+<body class="bg-light mb-5">
+  {% if dados['show'] %}
+  <div class="alert alert-success alert-dismissible w-100 mx-auto mt-3 text-center">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <strong>{{dados['nome']}}</strong> Confimado com sucesso!
+  </div>
+  {% endif %}
+  <div class="container w-auto mx-auto"><img class="mx-auto d-block shadow mb-5 mt-5 rounded-lg w-75 pulse"
+      src="..\static\images\Convite Ceia de Natal.png" alt="" srcset=""></div>
+  <section class="text-center w-75 mx-auto">
+    <p>Venha celebrar o Natal conosco no <span class="bold">Residencial Terra do Sol!</span>
+    <p>📆 Dia <span class="bold"><u>24/12/2023</u></span>, às 20:00 horas.</p>
+    <p>📍 Endereço: Av. Pioneiro Antônio Ruíz Saldanha, 1795. <a
+        href="https://www.google.com.br/maps/place/Av.+Pioneiro+Ant%C3%B4nio+Ru%C3%ADz+Saldanha,+1795+-+Parque+Industrial,+Maring%C3%A1+-+PR,+87065-290/@-23.4455,-51.9817444,17z/data=!3m1!4b1!4m5!3m4!1s0x94ecd7a08774a7b7:0xc54c1f27b11cfd6!8m2!3d-23.4455049!4d-51.9791695?entry=ttu"
+        target="_blank"><span class="badge badge-primary">Abrir no Maps <svg xmlns="http://www.w3.org/2000/svg"
+            width="14" height="12" fill="currentColor" class="bi bi-box-arrow-up-right" viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+              d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z" />
+            <path fill-rule="evenodd"
+              d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z" />
+          </svg></i></span></a></p>
+    <p>Aguardamos a confirmação da sua presença até o dia <u>15/12/2023</u>.</p>
+    <p>Estamos ansiosos para comemorarmos esse dia especial!</p>
+  </section>
+  <!-- ABRIR NO GOOGLE MAPS -->
+  <div class="container">
+    <form class="mx-auto" method="POST">
+      <h1 class="mb-3 display-4 text-center">Confirme sua presença</h1>
+      <div class="form-group">
+        <label for="name">Nome completo</label>
+        <input type="text" class="form-control" id="name" name="name" placeholder="Digite seu nome completo">
       </div>
- 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  </body>
+
+      <button type="submit" class="btn btn-success btn-block mt-3">Confirmar</button>
+    </form>
+
+
+  </div>
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+</body>
+
 </html>
