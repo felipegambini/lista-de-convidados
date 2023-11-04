@@ -4,7 +4,7 @@ from bson.objectid import ObjectId
 import pymongo
 import pandas as pd
 import datetime
-# from waitress import serve
+from waitress import serve
 
 app = Flask(__name__, template_folder='template')
 app.secret_key = '04b5b13cbe98a52f7a8cd06b353e5e0c20d18e4b04b0d6125126fb687297b1b2'
@@ -56,7 +56,7 @@ def index():
 @app.route('/confirmacoes')
 def confirmacoes():
     df = read_db(CLIENT, DB, 'lista_convidados')
-    return render_template('Confirmado.html', dados={'df': df})
+    return render_template('confirmado.html', dados={'df': df})
 
 
 @app.route('/confirmacoes/delete/<id>', methods=['GET'])
@@ -66,5 +66,6 @@ def delete_painel(id):
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8000, debug=True)
+    app.run(host='0.0.0.0', port=8000, debug=False)
+    # serve(app, port=5000)
  
