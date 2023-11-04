@@ -5,6 +5,7 @@ import pymongo
 import pandas as pd
 import datetime
 from waitress import serve
+import threading
 
 app = Flask(__name__, template_folder='template')
 app.secret_key = '04b5b13cbe98a52f7a8cd06b353e5e0c20d18e4b04b0d6125126fb687297b1b2'
@@ -44,7 +45,7 @@ def index():
         data_confirmacao = datetime.datetime.utcnow() - datetime.timedelta(hours=3)
         data_confirmacao = data_confirmacao.strftime('%x %X')
         convidado = {'nome': nome, 'datahora_confirmacao': data_confirmacao}
-        insert_db(CLIENT, DB, 'lista_convidados', convidado)
+        threading.Thread(target=lambda:insert_db(CLIENT, DB, 'lista_convidados', convidado)).start()
         return render_template('index.html', dados={'nome': nome, 'show': True})
 
     return render_template('index.html', dados={'nome': '', 'show': False})
