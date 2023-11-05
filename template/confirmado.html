@@ -25,7 +25,7 @@
         <tbody>
           {% for dado in dados['df'].iloc %}
           <tr>
-            <td scope="row" class="text-center">{{dado.name}}</td>
+            <td scope="row" class="text-center">{{dado.name + 1}}</td>
             <td scope="row" class="text-center">{{dado['nome']}}</td>
             <td scope="row" class="text-center">{{dado['datahora_confirmacao']}}</td>
             <td scope="row" class="text-center"><a href="/confirmacoes/delete/{{dado['_id']}}" target="_self">🗑️</a></td>

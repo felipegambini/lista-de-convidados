@@ -43,7 +43,7 @@ def index():
     if request.method == 'POST':
         nome = str(request.form['name']).strip().title()
         data_confirmacao = datetime.datetime.utcnow() - datetime.timedelta(hours=3)
-        data_confirmacao = data_confirmacao.strftime('%x %X')
+        data_confirmacao = data_confirmacao.strftime('%d/%m/%Y %X')
         convidado = {'nome': nome, 'datahora_confirmacao': data_confirmacao}
         threading.Thread(target=lambda:insert_db(CLIENT, DB, 'lista_convidados', convidado)).start()
         return render_template('index.html', dados={'nome': nome, 'show': True})
