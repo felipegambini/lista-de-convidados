@@ -6,6 +6,9 @@ import pandas as pd
 import datetime
 from waitress import serve
 import threading
+import requests
+from time import sleep
+
 
 app = Flask(__name__, template_folder='template')
 app.secret_key = '04b5b13cbe98a52f7a8cd06b353e5e0c20d18e4b04b0d6125126fb687297b1b2'
@@ -38,6 +41,12 @@ def read_db(_client, _db, _collection, filter=None):
     client.close()
     return df
 
+def stay_alive():
+    while True:
+        requests.get('https://lista-de-convidados.onrender.com/')
+        sleep(10 * 60)
+
+
 @app.route('/', methods=['GET','POST'])
 def index():
     if request.method == 'POST':
@@ -61,6 +70,8 @@ def delete_painel(id):
     delete_db(CLIENT, DB, 'lista_convidados', id)
     return redirect(url_for('confirmacoes'))
 
+
+threading.Thread(target=lambda:stay_alive()).start()
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8000, debug=False)
